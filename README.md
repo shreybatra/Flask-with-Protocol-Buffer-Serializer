@@ -13,7 +13,7 @@ Study more about Protocol buffer [here](https://auth0.com/blog/beating-json-perf
 4. Now, you can use this file to serialise/deserialise your protobuf files. You can learn more about these files [here](https://developers.google.com/protocol-buffers/docs/pythontutorial).
 5. I have provided 2 files **make_proto_file.py** to generate a sample protobuf file (saved as a binary file) and **read_display_proto_file.py** to display the contents of the binary protobuf file on _stdout_.
 6. To run any of these files, provide a system argument as the name of binary file to be created. As example - ```python make_proto_file.py protofile1.pb```.
-7. Now, you can run the Flask app by ```python flask_test.py```.
+7. Make sure you have `Flask 1.0.2+` installed. Run ```pip install -r requirements.txt``` once to install all the dependencies, now you can run the Flask app by ```python flask_test.py```.
 8. Use curl with the following command to test -
 ```curl -X POST -H "Accept: application/x-protobuf" -H "Content-type: application/x-protobuf" http://127.0.0.1:5000/load --data-binary @protofile1.pb > outputfile.pb```. The contents of the file will be printed as a json object after deserialisation of the protobuf file.
 9. At last, you can check the output of **outputfile.pb**. In this case, it will be the same as we are uploading the same file, and returning the same.
