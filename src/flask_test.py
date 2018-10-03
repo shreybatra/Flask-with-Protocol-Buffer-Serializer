@@ -1,8 +1,11 @@
+import httplib
+
 from flask import Flask, request, send_file
 import addressbook_pb2
 import io
 
 app = Flask(__name__)
+address_book = addressbook_pb2.AddressBook()
 
 def ListPeople(address_book):
     data = []
@@ -35,19 +38,22 @@ def ListPeople(address_book):
 
 
 @app.route('/load', methods=['POST'])
-def hello():
-    address_book = addressbook_pb2.AddressBook()
-    
+def load():
     address_book.ParseFromString(request.data)
 
     print(address_book)
 
+    return '', httplib.NO_CONTENT
+
+
+@app.route('/save', methods=['GET'])
+def save():
     return send_file(
         io.BytesIO(address_book.SerializeToString()),
         as_attachment=True,
         attachment_filename='abc.abc',
         mimetype='attachment/x-protobuf'
-        )
+    )
 
 
 if __name__=='__main__':
