@@ -46,8 +46,8 @@ if __name__ == '__main__':
       address_book.ParseFromString(f.read())
   except IOError:
       print(sys.argv[1] + ": Could not open file.  Creating a new one.")
-    # Add an address
-    prompt_for_address(address_book.people.add())
+  # Add an address
+  prompt_for_address(address_book.people.add())
 
     # Write the new address book back to disk.
   with open(sys.argv[1], "wb") as f:
