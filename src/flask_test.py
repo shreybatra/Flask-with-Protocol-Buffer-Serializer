@@ -7,6 +7,9 @@ import io
 app = Flask(__name__)
 address_book = addressbook_pb2.AddressBook()
 
+
+
+
 def ListPeople(address_book):
     data = []
     for person in address_book.people:
