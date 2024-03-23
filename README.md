@@ -5,6 +5,11 @@ Runs currently on python 2. To run it on Python 3, just change add parentheses o
 
 Study more about Protocol buffer [here](https://auth0.com/blog/beating-json-performance-with-protobuf/).
 
+##  Requirements to get this example running
+
+The major requirements are mentioned [here](/requirements.txt).
+You must have a protoc compiler and protobuf library in python
+
 ## To get this example running, do these steps.
 
 1. First create a **.proto** file with the schema of your request/response classes. An example is given in the file **addressbook.proto**
